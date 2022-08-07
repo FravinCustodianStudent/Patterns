@@ -1,0 +1,26 @@
+﻿namespace Patterns.Factory.Class;
+
+public class Point
+{
+    private double _x, _y;
+
+    public Point(double x,double y)
+    {
+        _x = x;
+        _y = y;
+    }
+
+    
+}
+
+public class PointFabric
+{
+    public static Point NewCartesianPoint(double x,double y)
+    {
+        return new Point(x,y);
+    }
+    public static Point NewPolarPoint(double rho,double theta)
+    {
+        return new Point(rho*Math.Cos(theta),rho*Math.Sin(theta));
+    }
+}
