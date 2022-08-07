@@ -3,7 +3,9 @@
 using Patterns;
 using Patterns.Builder;
 using Patterns.Builder.Email_BuilderParametr;
+using Patterns.Factory;
 using Patterns.Factory.Class;
+using Person = Patterns.Person;
 using Point = Patterns.Factory.Point;
 
 void BuilderExamples(){
@@ -40,5 +42,10 @@ void FabricsExamples()
 {
     var p = Point.NewCartesianPoint(1, 3);
     var p2 = PointFabric.NewCartesianPoint(1, 3);
+
+    var f = new PersonFactory();
+    var u = f.CreatePerson("Pidor");
+    Console.WriteLine(f.CurrentMaxId+ " " + u.Id);
+
 }
 FabricsExamples();
