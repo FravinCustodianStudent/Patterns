@@ -5,6 +5,7 @@ using Patterns.Builder;
 using Patterns.Builder.Email_BuilderParametr;
 using Patterns.Factory;
 using Patterns.Factory.Class;
+using Patterns.Prototype.Factory;
 using Person = Patterns.Person;
 using Point = Patterns.Factory.Point;
 
@@ -48,4 +49,21 @@ void FabricsExamples()
     Console.WriteLine(f.CurrentMaxId+ " " + u.Id);
 
 }
-FabricsExamples();
+//FabricsExamples();
+void PrototypeExamples()
+{
+    var main = new Employee(null, new Address("123 East Dr", "London", 0));
+    var aux = new Employee(null, new Address("123B East Dr", "London", 0));
+      
+      
+    var john = new Employee("John", new Address("123 London Road", "London", 123));
+
+    //var chris = john;
+    var jane = new Employee(john);
+
+    jane.Name = "Jane";
+      
+    Console.WriteLine(john); // oop s, john is called chris
+    Console.WriteLine(jane);
+}
+PrototypeExamples();
