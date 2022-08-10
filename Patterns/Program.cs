@@ -3,11 +3,12 @@
 using MoreLinq.Extensions;
 using Patterns;
 using Patterns.Adapter;
+using Patterns.Bridge;
 using Patterns.Builder;
 using Patterns.Builder.Email_BuilderParametr;
-using Patterns.Factory;
 using Patterns.Factory.Class;
 using Patterns.Prototype.Factory;
+using Circle = Patterns.Factory.Circle;
 using Person = Patterns.Person;
 using Point = Patterns.Adapter.Point;
 
@@ -123,4 +124,3 @@ void DrawPoints()
 DrawPoints();
 DrawPoints();
 }
-AdapterExamples();
