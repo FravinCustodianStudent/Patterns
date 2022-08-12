@@ -6,6 +6,7 @@ using Patterns.Adapter;
 using Patterns.Bridge;
 using Patterns.Builder;
 using Patterns.Builder.Email_BuilderParametr;
+using Patterns.Composite;
 using Patterns.Factory.Class;
 using Patterns.Prototype.Factory;
 using Circle = Patterns.Factory.Circle;
@@ -71,56 +72,70 @@ void BuilderExamples(){
 // }
 // PrototypeExamples();
 
-void AdapterExamples()
-{
-    
- List<VectorObject> vectorObjects 
-    = new List<VectorObject>
-    {
-        new VectorRectangle(1, 1, 10, 10),
-        new VectorRectangle(3, 3, 6, 6)
-    };
+// void AdapterExamples()
+// {
+//     
+//  List<VectorObject> vectorObjects 
+//     = new List<VectorObject>
+//     {
+//         new VectorRectangle(1, 1, 10, 10),
+//         new VectorRectangle(3, 3, 6, 6)
+//     };
+//
+// // the interface we have
+// void DrawPoint(Point p)
+// {
+//     Console.Write(".");
+// }
+//
+//
+//   List<Point> points = new List<Point>();
+// bool prepared = false;
+// void Prepare()
+// {
+//     if (prepared) return;
+//     foreach (var vo in vectorObjects)
+//     {
+//         foreach (var line in vo)
+//         {
+//             var adapter = new LineToPointAdapter(line);
+//             adapter.ForEach(p => points.Add(p));
+//         }
+//     }
+//     prepared = true;
+// }
+//
+// void DrawPointsLazy()
+// {
+//     Prepare();
+//     points.ForEach(DrawPoint);
+// }
+//
+// void DrawPoints()
+// {
+//     foreach (var vo in vectorObjects)
+//     {
+//         foreach (var line in vo)
+//         {
+//             var adapter = new LineToPointAdapter(line);
+//             adapter.ForEach(DrawPoint);
+//         }
+//     }
+// }
+// DrawPoints();
+// DrawPoints();
+// }
 
-// the interface we have
-void DrawPoint(Point p)
+void ComponentExamples()
 {
-    Console.Write(".");
-}
+    var drawing = new GraphicObject {Name = "My Drawing"};
+    drawing.Children.Add(new Square {Color = "Red"});
+    drawing.Children.Add(new Patterns.Composite.Circle{Color="Yellow"});
+      
+    var group = new GraphicObject();
+    group.Children.Add(new Patterns.Composite.Circle{Color="Blue"});
+    group.Children.Add(new Square{Color="Blue"});
+    drawing.Children.Add(group);
 
-
-  List<Point> points = new List<Point>();
-bool prepared = false;
-void Prepare()
-{
-    if (prepared) return;
-    foreach (var vo in vectorObjects)
-    {
-        foreach (var line in vo)
-        {
-            var adapter = new LineToPointAdapter(line);
-            adapter.ForEach(p => points.Add(p));
-        }
-    }
-    prepared = true;
-}
-
-void DrawPointsLazy()
-{
-    Prepare();
-    points.ForEach(DrawPoint);
-}
-
-void DrawPoints()
-{
-    foreach (var vo in vectorObjects)
-    {
-        foreach (var line in vo)
-        {
-            var adapter = new LineToPointAdapter(line);
-            adapter.ForEach(DrawPoint);
-        }
-    }
-}
-DrawPoints();
-DrawPoints();
+    Console.WriteLine(drawing);
 }
