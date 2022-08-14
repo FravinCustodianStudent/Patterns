@@ -15,4 +15,4 @@ C:\Users\User\RiderProjects\Patterns\Patterns\obj\Debug\net6.0\ref\Patterns.dll
 C:\Users\User\RiderProjects\Patterns\Patterns\bin\Debug\net6.0\MoreLinq.dll
 C:\Users\User\RiderProjects\Patterns\Patterns\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\User\RiderProjects\Patterns\Patterns\obj\Debug\net6.0\Patterns.csproj.CopyComplete
-C:\Users\User\RiderProjects\Patterns\Patterns\obj\Debug\net6.0\refint\Patterns.dll
+C:\Users\User\RiderProjects\Patterns\Patterns\bin\Debug\net6.0\ref\Patterns.dll
